@@ -1,0 +1,16 @@
+```php
+function processData(array $data): array {
+  // ... some code to process the data ...
+  foreach ($data as $key => $value) {
+    // ... more code ...
+    if (is_array($value)) {
+      $data[$key] = processData($value); // Recursive call
+    }
+  }
+  return $data;
+}
+
+$myData = [1, 2, [3, 4, [5, 6]]];
+$processedData = processData($myData);
+print_r($processedData);
+```
